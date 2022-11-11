@@ -1,0 +1,152 @@
+.main
+    &__container 
+        @extend .container
+        margin-top: 84px 
+        display: flex
+        flex-direction: column
+        gap: 100px
+    &__about
+        display: flex
+        &-title 
+            @extend .title
+        &-text 
+            margin-top: 20px 
+            font-size: 17px
+            display: flex
+            flex-direction: column
+            gap: 20px
+            color: #6E6E6E
+            line-height: 20px
+            margin-bottom: 40px
+        &-block 
+            display: flex
+            justify-content: center
+            gap: 30px
+        &-item 
+            display: flex
+            flex-direction: column
+            align-items: center
+            gap: 5px
+            max-width: 199px
+            width: 100%
+        &-number 
+            font-size: 45px
+            line-height: 68px
+            font-weight: $Black
+            letter-spacing: 0.07em
+            text-transform: uppercase
+            &.pink
+                color: #ED389E
+            &.green
+                color: #54C28F
+            &.blue
+                color: #00B5E3
+        &-descr 
+            font-size: 15px
+            width: 100%
+            text-align: center
+            line-height: 22px
+            font-weight: $SemiBold
+            letter-spacing: 0.1em
+            text-transform: uppercase
+            color: #1B1717
+    &__advantages
+        display: flex
+        flex-direction: column
+        gap: 38px
+        &-block 
+            display: flex
+            gap: 29px
+        &-item 
+            border-radius: 20px
+            display: flex
+            flex-direction: column
+            gap: 61px
+            &__title 
+                font-family: 'TTNorms'
+                font-weight: 900
+                font-size: 25px
+                line-height: 30px
+                letter-spacing: 0.07em
+                text-transform: uppercase
+                color: #FFFFFF
+            &__descr 
+                font-family: 'TTNorms'
+                font-weight: 400
+                font-size: 20px
+                line-height: 24px
+                color: #FFFFFF
+    &__discount
+        &-block 
+            background: url("@/assets/images/main/ozon-discount.png") no-repeat center / cover 
+            height: 550px
+            display: flex
+            align-items: center
+            justify-content: space-around
+        &-info 
+            display: flex
+            flex-direction: column
+            gap: 25px
+            &__title 
+                font-family: 'TTNorms'
+                font-weight: 700
+                font-size: 60px
+                line-height: 71px
+                color: #FFFFFF
+                max-width: 502px
+                width: 100%
+                & span 
+                    color: #4475F2
+            &__discount 
+                font-family: 'TTNorms'
+                font-weight: 700
+                font-size: 90px
+                line-height: 106px
+                color: #4475F2
+        &-form 
+            width: 465px
+            padding: 36px 40px
+            background: #FFFFFF
+            border: 1px solid #DEE2E6
+            box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 20px 20px rgba(0, 0, 0, 0.08)
+            border-radius: 8px
+            display: flex
+            flex-direction: column
+            align-items: center
+            &__title 
+                font-family: 'TTNorms'
+                font-weight: 700
+                font-size: 20px
+                line-height: 24px
+                color: #4475F2
+                margin-bottom: 8px
+            &__descr
+                font-family: 'TTNorms'
+                font-weight: 400
+                font-size: 14px
+                line-height: 22px
+                text-align: center
+                color: rgba(84, 89, 94, 0.6)
+                margin-bottom: 24px
+            &__input 
+                padding: 13.5px 16px
+                width: 100%
+                border: 1px solid #D1D1D1
+                border-radius: 8px
+                font-family: 'TTNorms'
+                font-weight: 500
+                font-size: 14px
+                line-height: 17px
+                color: black
+                margin-bottom: 16px
+            &__btn
+                width: 385px
+                height: 44px
+                display: flex
+                justify-content: center 
+                align-items: center
+                background: #4475F2
+                border-radius: 8px
+                color: #F5F5F5
+                cursor: pointer
+                
