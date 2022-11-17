@@ -64,6 +64,32 @@ export default createStore({
         icon:"printer.svg"
       },
     ],
+    usersComments: [
+      {
+        id: 1,
+        userName: "Ирина Ларионова",
+        city: "Санкт-Петербург",
+        title: "«Подарок порадовал, дети были в восторге»",
+        comment: "Massa commodo leo amet in feugiat non, commodo. Augue senectus felis, suspendisse amet suscipit vestibulum lobortis ornare sed. Pharetra, in duis tortor, iaculis mi magna urna nullam. ",
+        img: "default-avatar.png"
+      },
+      {
+        id: 2,
+        userName: "Вишневская Елена",
+        city: "Санкт-Петербург",
+        title: "«Подарок порадовал, дети были в восторге»",
+        comment: "Massa commodo leo amet in feugiat non, commodo. Augue senectus felis, suspendisse amet suscipit vestibulum lobortis ornare sed. Pharetra, in duis tortor, iaculis mi magna urna nullam. ",
+        img: "default-avatar.png"
+      },
+      {
+        id:3 ,
+        userName: "Елена Демидова",
+        city: "Санкт-Петурбург",
+        title: "«Подарок порадовал, дети были в восторге»",
+        comment: "Massa commodo leo amet in feugiat non, commodo. Augue senectus felis, suspendisse amet suscipit vestibulum lobortis ornare sed. Pharetra, in duis tortor, iaculis mi magna urna nullam. ",
+        img: "default-avatar.png"
+      },
+    ]
   },
   getters: {
     getMenuList(state){
@@ -74,6 +100,9 @@ export default createStore({
     },
     getFooterInfo(state){
       return state.footerInfo
+    },
+    getUsersComments(state){
+      return state.usersComments
     }
   },
   mutations: {
