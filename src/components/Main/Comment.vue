@@ -26,7 +26,7 @@ export default {
     &__comments 
         &-item 
             background: white
-            max-width: 934px
+            max-width: 1180px
             padding: 55px 113px
             display: flex
             gap: 54px
@@ -44,4 +44,31 @@ export default {
                 font-size: 30px
                 line-height: 143%
                 color: #2E363E
+            &__descr 
+                font-family: 'TTNorms'
+                font-weight: 400
+                font-size: 16px
+                line-height: 24px
+                letter-spacing: 0.02em
+                color: #728095
+            &__right
+                display: flex
+                flex-direction: column
+                align-items: center
+            &__name 
+                margin-top: 30px
+                margin-bottom: 6px
+                font-family: 'TTNorms'
+                font-weight: 500
+                font-size: 21px
+                line-height: 143%
+                text-align: center
+                color: #2E363E
+            &__city 
+                font-family: 'TTNorms'
+                font-weight: 400
+                font-size: 16px
+                line-height: 170%
+                text-align: center
+                color: #A6AEB6
 </style>
