@@ -1,0 +1,91 @@
+@include media(1199px)
+    .header 
+        &__content
+            &-container 
+                flex-direction: column
+            &-left 
+                align-items: center
+            &-title 
+                text-align: center
+    
+    .main 
+        &__products
+            &-block 
+                grid-template-columns: repeat(2,1fr)
+        &__advantages
+            &-block 
+                flex-wrap: wrap
+        &__discount
+            &-block
+                flex-direction: column
+                gap: 30px
+                padding: 60px
+                height: 100%
+            &-info 
+                align-items: center
+
+    .footer
+        &__block 
+            &-info 
+                display: grid
+                grid-template-columns: repeat(2,1fr)
+                gap: 20px
+    .item-img 
+        width: 100%
+
+@include media(1065px)
+    .main
+        &__about 
+            flex-direction: column
+            align-items: center
+
+
+@include media(767px)
+
+    .header
+        &__nav 
+            &-top 
+                flex-direction: column
+                padding: 10px
+                gap: 15px
+            &-block 
+                gap: 11px
+            &-menu 
+                justify-content: center
+        &__content 
+            &-img 
+                width: 100%
+            &-btnleft
+                top: 41%
+            &-btnright
+                top: 41%
+
+    .main
+        &__about 
+            &-right 
+                & img 
+                    width: 100%
+        &__products
+            &-block 
+                grid-template-columns: repeat(1,1fr)
+            &-search 
+                flex-direction: column
+    
+    .footer
+        &__block
+            &-bottom 
+                flex-direction: column
+                gap: 15px
+                align-items: center
+    
+@include media(576px)
+    .main
+        &__products
+            &-tag
+                padding: 10px 19px
+        &__discount
+            &-form 
+                width: 100%
+                padding: 18px 20px
+                &__btn 
+                    width: 100%
