@@ -6,12 +6,13 @@ nav.header__nav
                 img(src="@/assets/images/logo.png" alt="")
             .header__nav-block
                 .header__nav-input-block
-                    img(src="@/assets/icons/search.svg" @click="clearSearch")
+                    img(src="@/assets/icons/search.svg" alt="Поиск" @click="handleSearch")
                     input.header__nav-input(
                     placeholder="Поиск" 
                     :class="{'big-active': searchStatus}" 
                     v-model="search"
-                    @keydown.enter="clearSearch")
+                    @keydown.enter="handleSearch"
+                    aria-label="Поиск по сайту")
                 .header__nav-info
                     img(src="@/assets/icons/call-calling.svg")
                     .header__nav-telblock
@@ -39,5 +40,19 @@ const searchStatus = computed<boolean>(() => search.value.length > 0)
 
 function clearSearch(): void {
     search.value = ""
+}
+
+function handleSearch(): void {
+    if (search.value.trim()) {
+        const productsEl = document.getElementById("products")
+        if (productsEl) {
+            productsEl.scrollIntoView({ behavior: "smooth" })
+            const inputEl = productsEl.querySelector<HTMLInputElement>(".main__products-input")
+            if (inputEl) {
+                inputEl.value = search.value
+                inputEl.dispatchEvent(new Event("input"))
+            }
+        }
+    }
 }
 </script>

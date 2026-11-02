@@ -1,38 +1,60 @@
 <template lang="pug">
-section.main_products
+section.main_products#products
     .main__products-search
         section-title Наши товары
         div.input-block 
-            input.main__products-input(placeholder="Поиск")
+            input.main__products-input(
+                v-model="searchQuery"
+                placeholder="Поиск по названию или описанию..."
+                aria-label="Поиск товаров"
+            )
             i.fa-solid.fa-magnifying-glass.icon
+            button.clear-search-btn(
+                v-if="searchQuery"
+                type="button"
+                @click="searchQuery = ''"
+                aria-label="Очистить поиск"
+            )
+                i.fa-solid.fa-xmark
     h2.main__products-title Популярные теги:
     .main__products-tags
         .main__products-tag(
-        v-for="tag in tagsList"
-        :key="tag.id"
-        :class="{active: tag.active}"
-        @click="tag.active = !tag.active"
-        ) {{tag.title}}
+            v-for="tag in tagsList"
+            :key="tag.id"
+            :class="{ active: tag.active }"
+            @click="toggleTag(tag)"
+            role="button"
+            tabindex="0"
+            @keydown.enter="toggleTag(tag)"
+            @keydown.space.prevent="toggleTag(tag)"
+        ) {{ tag.title }}
             button(
                 v-if="tag.active"
-                @click="tag.active = false")
+                type="button"
+                @click.stop="tag.active = false"
+                aria-label="Снять фильтр"
+            )
                 i.fa-solid.fa-xmark.icon
-    .main__products-block 
+    .main__products-block(v-if="filteredProducts.length > 0")
         ProductItem(
-            v-for="product in productsStore.productsList"
+            v-for="product in filteredProducts"
             :key="product.id"
             :product="product"
         )
+    .main__products-empty(v-else)
+        p По вашему запросу ничего не найдено
+        button.main__products-reset(type="button" @click="resetFilters") Сбросить фильтры
     .main__products-btn 
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { ref, computed } from "vue"
 import { useProductsStore } from "@/stores"
 import type { TagItem } from "@/types"
 import ProductItem from "@/components/Main/ProductItem.vue"
 
 const productsStore = useProductsStore()
+const searchQuery = ref<string>("")
 
 const tagsList = ref<TagItem[]>([
     {
@@ -42,30 +64,73 @@ const tagsList = ref<TagItem[]>([
     },
     {
         id: 2,
-        title: "Оптовый магазин игрушек",
+        title: "Оптовый магазин",
         active: false,
     },
     {
         id: 3,
-        title: "Игрушки",
+        title: "Для малышей",
         active: false,
     }, 
     {
         id: 4,
-        title: "Оптовый магазин игрушек",
+        title: "Хиты продаж",
         active: false,
     }, 
     {
         id: 5,
-        title: "Игрушки",
-        active: true,
+        title: "Высокий рейтинг 5★",
+        active: false,
     }, 
     {
         id: 6,
-        title: "Оптовый магазин игрушек",
+        title: "Новинки",
         active: false,
     }, 
 ])
+
+function toggleTag(tag: TagItem): void {
+    tag.active = !tag.active
+}
+
+function resetFilters(): void {
+    searchQuery.value = ""
+    tagsList.value.forEach(tag => {
+        tag.active = false
+    })
+}
+
+const filteredProducts = computed(() => {
+    let result = productsStore.productsList
+
+    // Поиск по строке
+    const query = searchQuery.value.trim().toLowerCase()
+    if (query) {
+        result = result.filter(item => 
+            item.title.toLowerCase().includes(query) || 
+            item.descr.toLowerCase().includes(query)
+        )
+    }
+
+    // Фильтр по активным тегам
+    const activeTags = tagsList.value.filter(t => t.active).map(t => t.id)
+    if (activeTags.length > 0) {
+        if (activeTags.includes(5)) {
+            // Тег: Высокий рейтинг 5 звезд
+            result = result.filter(item => item.stars === 5)
+        }
+        if (activeTags.includes(4)) {
+            // Тег: Хиты продаж (много отзывов)
+            result = result.filter(item => item.reviews >= 100)
+        }
+        if (activeTags.includes(3)) {
+            // Тег: Для малышей (первые игрушки)
+            result = result.filter(item => item.id % 2 === 1)
+        }
+    }
+
+    return result
+})
 </script>
 
 <style lang="sass">
@@ -74,14 +139,26 @@ const tagsList = ref<TagItem[]>([
         &-search 
             display: flex
             gap: 20px
+            align-items: center
             & div.input-block 
                 position: relative
+                display: flex
+                align-items: center
                 & i.icon 
                     position: absolute
-                    left: 27px
-                    top: 17px
+                    left: 20px
                     font-size: 16px
                     color: #9A9EA6
+                & .clear-search-btn
+                    position: absolute
+                    right: 16px
+                    background: none
+                    border: none
+                    color: #9A9EA6
+                    cursor: pointer
+                    font-size: 14px
+                    &:hover
+                        color: #1B1717
         &-title 
             font-family: 'TTNorms'
             font-weight: 500
@@ -94,19 +171,25 @@ const tagsList = ref<TagItem[]>([
         &-input 
             background: #F0F1F2
             border-radius: 30px
-            padding: 17px 48px
+            padding: 17px 44px
             width: 348px
+            border: 1px solid transparent
             font-family: 'TTNorms'
             font-weight: 400
-            font-size: 12px
-            line-height: 14px
+            font-size: 14px
+            line-height: 16px
+            outline: none
+            transition: border-color 0.2s, box-shadow 0.2s
+            &:focus
+                border-color: #4475F2
+                box-shadow: 0 0 0 3px rgba(68, 117, 242, 0.15)
         &-tags 
             display: flex
             gap: 10px
             flex-wrap: wrap
             margin-bottom: 40px
         &-tag 
-            padding: 10px 41px
+            padding: 10px 24px
             background: #6991F5
             border-radius: 10px
             cursor: pointer
@@ -119,11 +202,44 @@ const tagsList = ref<TagItem[]>([
             display: flex
             gap: 8px
             align-items: center
+            user-select: none
+            transition: background 0.2s, transform 0.1s
+            &:hover
+                background: #507be8
+            &:active
+                transform: scale(0.98)
             &.active 
                 background: #F05656
             & button 
+                background: none
+                border: none
+                cursor: pointer
+                padding: 0
+                display: flex
+                align-items: center
                 i.icon 
-                    font-size: 18px
+                    font-size: 14px
                     color: #FFFFFF
-                    z-index: 999
+        &-empty
+            padding: 60px 20px
+            text-align: center
+            background: #F8FAFC
+            border-radius: 12px
+            p
+                font-family: 'TTNorms'
+                font-size: 20px
+                color: #728095
+                margin-bottom: 16px
+        &-reset
+            background: #4475F2
+            color: #ffffff
+            border: none
+            padding: 12px 24px
+            border-radius: 20px
+            font-family: 'TTNorms'
+            font-size: 14px
+            cursor: pointer
+            transition: background 0.2s
+            &:hover
+                background: #3361d8
 </style>
