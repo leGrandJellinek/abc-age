@@ -5,7 +5,7 @@
         h2.main__comments-item__title {{item.title}}
         p.main__comments-item__descr {{item.comment}}
     .main__comments-item__right
-        img(:src="require(`@/assets/images/main/${item.img}`)")
+        img(:src="$getMainImage(item.img)")
         h3.main__comments-item__name {{item.userName}}
         p.main__comments-item__city {{item.city}}
 </template>

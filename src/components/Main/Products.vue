@@ -135,8 +135,8 @@ export default {
             &.active 
                 background: #F05656
             & button 
-                & i.icon 
-                font-size: 18px
-                color: #FFFFFF
-                z-index: 999
+                i.icon 
+                    font-size: 18px
+                    color: #FFFFFF
+                    z-index: 999
 </style>

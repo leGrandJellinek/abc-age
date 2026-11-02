@@ -1,7 +1,7 @@
 <template lang="pug">
 .main__products-item
     .main__products-item__top
-        img.item-img(:src="require(`@/assets/images/main/${product.img}`)")
+        img.item-img(:src="$getMainImage(product.img)")
     .main__products-item__bottom
         .main__products-item__title {{product.title}}
         .main__products-item__rev
@@ -54,7 +54,6 @@ export default {
                 font-size: 16px
                 line-height: 150%
                 color: rgba(255, 255, 255, 0.4) 
-            &__top 
             &__bottom
                 padding: 25px 40px 40px 31px
             &__btns 

@@ -1,6 +1,6 @@
 <template lang="pug">
 .main__blog-item(
-    :style="{background: `url(${require(`@/assets/images/main/${item.img}`)}) no-repeat center /cover`}"
+    :style="{background: `url(${$getMainImage(item.img)}) no-repeat center /cover`}"
 ) 
     .main__blog-item__block
         h2.main__blog-item__title {{item.title}}

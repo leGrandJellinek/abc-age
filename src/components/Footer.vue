@@ -4,11 +4,11 @@ footer.footer
         .footer__block
             .footer__block-icons
                 a.footer__block-icon(href="#!" v-for="icon in getFooterIcons" :key="icon.id")
-                    img(:src="require(`@/assets/icons/${icon.icon}`)")
+                    img(:src="$getIcon(icon.icon)")
             .footer__block-info
                 .footer__block-item(v-for="item in getFooterInfo" :key="item.id")
                     button.footer__block-btn
-                        img(:src="require(`@/assets/icons/${item.icon}`)")
+                        img(:src="$getIcon(item.icon)")
                     .footer__block-div
                         p.footer__block-title {{item.title}}
                         a.footer__block-text(href="#!") {{item.info}}
