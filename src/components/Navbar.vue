@@ -28,26 +28,17 @@ nav.header__nav
                     a.header__nav-link(href="#!") {{item.title}}
 </template>
 
-<script>
+<script setup>
+import { ref, computed } from "vue"
+import { useStore } from "vuex"
 
-import {mapGetters} from "vuex"
+const store = useStore()
+const search = ref("")
 
-export default {
-    computed:{
-        ...mapGetters(["getMenuList"]),
-        searchStatus(){
-            return this.search.length > 0
-        }
-    },
-    data(){
-        return {
-            search: '',
-        }
-    },
-    methods: {
-        clearSearch(){
-            this.search = '';
-        }
-    }
+const getMenuList = computed(() => store.getters.getMenuList)
+const searchStatus = computed(() => search.value.length > 0)
+
+function clearSearch() {
+    search.value = ""
 }
 </script>

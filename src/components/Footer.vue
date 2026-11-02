@@ -19,13 +19,13 @@ footer.footer
                 p.footer__block-copyright © 2000-2022, Все права защищены
 </template>
 
-<script>
+<script setup>
+import { computed } from "vue"
+import { useStore } from "vuex"
 
-import {mapGetters} from "vuex"
+const store = useStore()
 
-export default {
-    computed:{
-        ...mapGetters(["getFooterIcons", "getFooterInfo", "getMenuList"])
-    }
-}
+const getFooterIcons = computed(() => store.getters.getFooterIcons)
+const getFooterInfo = computed(() => store.getters.getFooterInfo)
+const getMenuList = computed(() => store.getters.getMenuList)
 </script>

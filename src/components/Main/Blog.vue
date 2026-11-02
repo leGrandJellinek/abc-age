@@ -15,24 +15,14 @@ section.main__blog
             )
 </template>
 
-<script>
+<script setup>
+import { computed } from "vue"
+import { useStore } from "vuex"
 import BlogItem from "@/components/Main/BlogItem.vue"
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { mapGetters } from "vuex";
-export default {
-    components: {
-        BlogItem,
-        Swiper,
-        SwiperSlide 
-    },
-    computed: {
-        ...mapGetters(["getBlogList"])
-    },
-    setup() {
-        return {
-        };
-    },
-}
+import { Swiper, SwiperSlide } from "swiper/vue"
+
+const store = useStore()
+const getBlogList = computed(() => store.getters.getBlogList)
 </script>
 
 <style lang="sass" scoped>

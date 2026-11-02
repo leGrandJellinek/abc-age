@@ -19,8 +19,5 @@ section.main__about
         img(src="@/assets/images/main/AboutCompanyBG.png")
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
 </script>

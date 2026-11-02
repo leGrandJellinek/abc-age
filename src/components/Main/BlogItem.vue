@@ -12,15 +12,13 @@
 
 </template>
 
-<script>
-export default {
-    props: {
-        item: {
-            require:true,
-            type: Object
-        }
+<script setup>
+defineProps({
+    item: {
+        type: Object,
+        required: true
     }
-}
+})
 </script>
 
 <style lang="sass">

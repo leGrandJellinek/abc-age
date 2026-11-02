@@ -17,15 +17,13 @@
             button.main__products-item__btn Купить на WB
 </template>
 
-<script>
-export default {
-    props:{
-        product: {
-            type: Object,
-            require: true
-        }
+<script setup>
+defineProps({
+    product: {
+        type: Object,
+        required: true
     }
-}
+})
 </script>
 
 <style lang="sass">
@@ -87,7 +85,5 @@ export default {
                 color: #FFFFFF
                 margin-top: 15px
                 margin-bottom: 30px
-
-                
 
 </style>

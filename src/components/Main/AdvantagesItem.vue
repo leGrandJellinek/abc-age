@@ -4,15 +4,13 @@
     p.main__advantages-item__descr {{item.descr}}
 </template>
 
-<script>
-export default {
-    props:{
-        item: {
-            require:true,
-            item:Object
-        }
+<script setup>
+defineProps({
+    item: {
+        type: Object,
+        required: true
     }
-}
+})
 </script>
 
 <style lang="sass">

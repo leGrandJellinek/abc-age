@@ -15,8 +15,5 @@ section.main__discount
 
 </template>
 
-<script>
-export default {
-    
-}
+<script setup>
 </script>

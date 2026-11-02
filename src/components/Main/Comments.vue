@@ -22,28 +22,16 @@ section.main__comments
                 i.fa-solid.fa-chevron-right.icon
 </template>
 
-<script>
-import {mapGetters} from "vuex"
-
+<script setup>
+import { computed } from "vue"
+import { useStore } from "vuex"
 import Comment from "@/components/Main/Comment.vue"
+import { Swiper, SwiperSlide } from "swiper/vue"
+import { Pagination, Navigation } from "swiper"
 
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination, Navigation } from "swiper";
-export default {
-    computed:{
-        ...mapGetters(["getUsersComments"])
-    },
-    components:{
-        Comment,
-        Swiper, 
-        SwiperSlide
-    },
-    setup() {
-        return {
-        modules: [Pagination, Navigation],
-        };
-    }
-}
+const store = useStore()
+const getUsersComments = computed(() => store.getters.getUsersComments)
+const modules = [Pagination, Navigation]
 </script>
 
 <style lang="sass">

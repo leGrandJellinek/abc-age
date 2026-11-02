@@ -3,10 +3,10 @@ h2.black-title
     slot
 </template>
 
-<script>
-export default {
+<script setup>
+defineOptions({
     name: "section-title"
-}
+})
 </script>
 
 <style lang="sass" scoped>

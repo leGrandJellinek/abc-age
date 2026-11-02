@@ -26,59 +26,46 @@ section.main_products
     .main__products-btn 
 </template>
 
-<script>
-
+<script setup>
+import { ref, computed } from "vue"
+import { useStore } from "vuex"
 import ProductItem from "@/components/Main/ProductItem.vue"
-import { mapGetters } from "vuex";
-export default {
-    data(){
-        return {
-            tagsList: [
-                {
-                    id:1,
-                    title: "Игрушки оптом и в розницу",
-                    active: false,
-                    
-                },
-                {
-                    id:2,
-                    title: "Оптовый магазин игрушек",
-                    active: false,
-                    
-                },
-                {
-                    id:3,
-                    title: "Игрушки",
-                    active: false,
-                    
-                }, 
-                {
-                    id:4,
-                    title: "Оптовый магазин игрушек",
-                    active: false,
-                    
-                }, 
-                {
-                    id:5,
-                    title: "Игрушки",
-                    active: true,
-                    
-                }, 
-                {
-                    id:6,
-                    title: "Оптовый магазин игрушек",
-                    active: false,
-                }, 
-            ]
-        }
+
+const store = useStore()
+const getProductList = computed(() => store.getters.getProductList)
+
+const tagsList = ref([
+    {
+        id: 1,
+        title: "Игрушки оптом и в розницу",
+        active: false,
     },
-    components: {
-        ProductItem
+    {
+        id: 2,
+        title: "Оптовый магазин игрушек",
+        active: false,
     },
-    computed: {
-        ...mapGetters(["getProductList"])
-    }
-}
+    {
+        id: 3,
+        title: "Игрушки",
+        active: false,
+    }, 
+    {
+        id: 4,
+        title: "Оптовый магазин игрушек",
+        active: false,
+    }, 
+    {
+        id: 5,
+        title: "Игрушки",
+        active: true,
+    }, 
+    {
+        id: 6,
+        title: "Оптовый магазин игрушек",
+        active: false,
+    }, 
+])
 </script>
 
 <style lang="sass">

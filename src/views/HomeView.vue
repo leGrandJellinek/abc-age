@@ -1,13 +1,9 @@
 <template lang="pug">
 Main
 </template>
-<script>
+
+<script setup>
 import Main from "@/components/Main.vue"
-export default {
-    components:{
-        Main
-    }
-}
 </script>
 
 <style>

@@ -10,37 +10,28 @@ section.main__advantages
             )
 </template>
 
-<script>
-
+<script setup>
+import { ref } from "vue"
 import AdvantagesItem from "@/components/Main/AdvantagesItem.vue"
 
-export default {
-    data(){
-        return {
-            advantagesList: [
-                {
-                    id: 1,
-                    title: "Преимущество",
-                    descr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
-                    color: "#6991F5"
-                },
-                {
-                    id: 2,
-                    title: "преимущество",
-                    descr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
-                    color: "#EE379D"
-                },
-                {
-                    id: 3,
-                    title: "преимущество",
-                    descr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
-                    color: "#55C18F"
-                }
-            ]
-        }
+const advantagesList = ref([
+    {
+        id: 1,
+        title: "Преимущество",
+        descr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+        color: "#6991F5"
     },
-    components: {
-        AdvantagesItem
+    {
+        id: 2,
+        title: "преимущество",
+        descr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+        color: "#EE379D"
     },
-}
+    {
+        id: 3,
+        title: "преимущество",
+        descr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+        color: "#55C18F"
+    }
+])
 </script>
