@@ -4,13 +4,12 @@
     p.main__advantages-item__descr {{item.descr}}
 </template>
 
-<script setup>
-defineProps({
-    item: {
-        type: Object,
-        required: true
-    }
-})
+<script setup lang="ts">
+import type { AdvantageItem } from "@/types"
+
+defineProps<{
+    item: AdvantageItem
+}>()
 </script>
 
 <style lang="sass">

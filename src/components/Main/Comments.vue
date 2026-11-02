@@ -22,7 +22,7 @@ section.main__comments
                 i.fa-solid.fa-chevron-right.icon
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useCommentsStore } from "@/stores"
 import Comment from "@/components/Main/Comment.vue"
 import { Swiper, SwiperSlide } from "swiper/vue"

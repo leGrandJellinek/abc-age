@@ -15,7 +15,7 @@ section.main__blog
             )
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useBlogStore } from "@/stores"
 import BlogItem from "@/components/Main/BlogItem.vue"
 import { Swiper, SwiperSlide } from "swiper/vue"

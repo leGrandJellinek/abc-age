@@ -28,16 +28,16 @@ nav.header__nav
                     a.header__nav-link(href="#!") {{item.title}}
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from "vue"
 import { useNavigationStore } from "@/stores"
 
 const navigationStore = useNavigationStore()
-const search = ref("")
+const search = ref<string>("")
 
-const searchStatus = computed(() => search.value.length > 0)
+const searchStatus = computed<boolean>(() => search.value.length > 0)
 
-function clearSearch() {
+function clearSearch(): void {
     search.value = ""
 }
 </script>

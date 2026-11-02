@@ -12,13 +12,12 @@
 
 </template>
 
-<script setup>
-defineProps({
-    item: {
-        type: Object,
-        required: true
-    }
-})
+<script setup lang="ts">
+import type { BlogPost } from "@/types"
+
+defineProps<{
+    item: BlogPost
+}>()
 </script>
 
 <style lang="sass">

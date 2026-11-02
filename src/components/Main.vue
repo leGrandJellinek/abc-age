@@ -10,7 +10,7 @@ main.main
         Blog
 </template>
 
-<script setup>
+<script setup lang="ts">
 import AboutCompany from "@/components/Main/AboutCompany.vue"
 import OurAdvantages from "@/components/Main/OurAdvantages.vue"
 import Discount from "@/components/Main/Discount.vue"

@@ -10,11 +10,12 @@ section.main__advantages
             )
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue"
+import type { AdvantageItem } from "@/types"
 import AdvantagesItem from "@/components/Main/AdvantagesItem.vue"
 
-const advantagesList = ref([
+const advantagesList = ref<AdvantageItem[]>([
     {
         id: 1,
         title: "Преимущество",

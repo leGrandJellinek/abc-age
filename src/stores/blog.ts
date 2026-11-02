@@ -1,8 +1,9 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import type { BlogPost } from '@/types'
 
 export const useBlogStore = defineStore('blog', () => {
-  const blogList = ref([
+  const blogList = ref<BlogPost[]>([
     {
       id: 1,
       title: "Заголовок новости",

@@ -19,7 +19,7 @@ footer.footer
                 p.footer__block-copyright © 2000-2022, Все права защищены
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useFooterStore, useNavigationStore } from "@/stores"
 
 const footerStore = useFooterStore()

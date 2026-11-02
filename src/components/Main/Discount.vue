@@ -15,5 +15,5 @@ section.main__discount
 
 </template>
 
-<script setup>
+<script setup lang="ts">
 </script>

@@ -1,8 +1,9 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import type { FooterIcon, FooterInfo } from '@/types'
 
 export const useFooterStore = defineStore('footer', () => {
-  const footerIcons = ref([
+  const footerIcons = ref<FooterIcon[]>([
     {
       id: 1,
       icon: "facebook.svg"
@@ -21,7 +22,7 @@ export const useFooterStore = defineStore('footer', () => {
     }
   ])
 
-  const footerInfo = ref([
+  const footerInfo = ref<FooterInfo[]>([
     {
       id: 1,
       title: "Телефон",

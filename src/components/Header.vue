@@ -16,6 +16,6 @@ header.header
                     img(src="@/assets/icons/arrow.svg")
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Navbar from "@/components/Navbar.vue"
 </script>

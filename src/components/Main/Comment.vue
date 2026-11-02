@@ -10,13 +10,12 @@
         p.main__comments-item__city {{item.city}}
 </template>
 
-<script setup>
-defineProps({
-    item: {
-        type: Object,
-        required: true
-    }
-})
+<script setup lang="ts">
+import type { CommentItem } from "@/types"
+
+defineProps<{
+    item: CommentItem
+}>()
 </script>
 
 <style lang="sass">

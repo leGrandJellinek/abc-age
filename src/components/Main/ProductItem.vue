@@ -17,13 +17,12 @@
             button.main__products-item__btn Купить на WB
 </template>
 
-<script setup>
-defineProps({
-    product: {
-        type: Object,
-        required: true
-    }
-})
+<script setup lang="ts">
+import type { Product } from "@/types"
+
+defineProps<{
+    product: Product
+}>()
 </script>
 
 <style lang="sass">

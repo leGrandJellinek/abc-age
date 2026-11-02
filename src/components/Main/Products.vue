@@ -26,14 +26,15 @@ section.main_products
     .main__products-btn 
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue"
 import { useProductsStore } from "@/stores"
+import type { TagItem } from "@/types"
 import ProductItem from "@/components/Main/ProductItem.vue"
 
 const productsStore = useProductsStore()
 
-const tagsList = ref([
+const tagsList = ref<TagItem[]>([
     {
         id: 1,
         title: "Игрушки оптом и в розницу",

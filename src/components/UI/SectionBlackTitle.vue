@@ -3,7 +3,7 @@ h2.black-title
     slot
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineOptions({
     name: "section-title"
 })
