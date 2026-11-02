@@ -1,5 +1,5 @@
 <template lang="pug">
-section.main__blog
+section.main__blog#blog
     section-title.main__blog-title блог
     p.main__blog-descr Massa commodo leo amet in feugiat non, commodo. Augue senectus felis, suspendisse amet suscipit vestibulum lobortis ornare sed. Pharetra, in duis tortor, iaculis mi magna urna nullam. 
     swiper.main__blog-block(

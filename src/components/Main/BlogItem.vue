@@ -5,10 +5,10 @@
     .main__blog-item__block
         h2.main__blog-item__title {{item.title}}
         p.main__blog-item__descr {{item.descr}}
-    a.main__blog-read(href="#!")
-        .circle
+    a.main__blog-read(href="#blog" :aria-label="'Читать полностью: ' + item.title")
+        .circle(aria-hidden="true")
         span Читать полностью
-        i.fa-solid.fa-angle-right.icon 
+        i.fa-solid.fa-angle-right.icon(aria-hidden="true")
 
 </template>
 

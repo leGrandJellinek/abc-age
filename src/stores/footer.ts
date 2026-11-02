@@ -6,19 +6,27 @@ export const useFooterStore = defineStore('footer', () => {
   const footerIcons = ref<FooterIcon[]>([
     {
       id: 1,
-      icon: "facebook.svg"
+      icon: "facebook.svg",
+      name: "Facebook",
+      href: "https://facebook.com"
     },
     {
       id: 2,
-      icon: "youtube.svg"
+      icon: "youtube.svg",
+      name: "YouTube",
+      href: "https://youtube.com"
     },
     {
       id: 3,
-      icon: "dribbble.svg"
+      icon: "dribbble.svg",
+      name: "Dribbble",
+      href: "https://dribbble.com"
     },
     {
       id: 4,
-      icon: "whatsapp.svg"
+      icon: "whatsapp.svg",
+      name: "WhatsApp",
+      href: "https://whatsapp.com"
     }
   ])
 

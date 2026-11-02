@@ -1,11 +1,14 @@
 export interface MenuItem {
   id: number
   title: string
+  href?: string
 }
 
 export interface FooterIcon {
   id: number
   icon: string
+  name?: string
+  href?: string
 }
 
 export interface FooterInfo {

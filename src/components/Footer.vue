@@ -1,21 +1,28 @@
 <template lang="pug">
-footer.footer
+footer.footer(role="contentinfo")
     .footer__container
         .footer__block
             .footer__block-icons
-                a.footer__block-icon(href="#!" v-for="icon in footerStore.footerIcons" :key="icon.id")
-                    img(:src="$getIcon(icon.icon)")
+                a.footer__block-icon(
+                    v-for="icon in footerStore.footerIcons" 
+                    :key="icon.id"
+                    :href="icon.href || '#!'"
+                    :aria-label="icon.name || 'Социальная сеть'"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                )
+                    img(:src="$getIcon(icon.icon)" alt="" aria-hidden="true")
             .footer__block-info
                 .footer__block-item(v-for="item in footerStore.footerInfo" :key="item.id")
-                    button.footer__block-btn
-                        img(:src="$getIcon(item.icon)")
+                    button.footer__block-btn(type="button" :aria-label="item.title")
+                        img(:src="$getIcon(item.icon)" alt="" aria-hidden="true")
                     .footer__block-div
                         p.footer__block-title {{item.title}}
-                        a.footer__block-text(href="#!") {{item.info}}
+                        a.footer__block-text(:href="item.title === 'Почта' ? `mailto:${item.info}` : item.title.includes('Телефон') ? `tel:${item.info}` : '#!'") {{item.info}}
             .footer__block-bottom
                 ul.footer__block-menu
                     li(v-for="link in navigationStore.menuList" :key="link.id")
-                        a.footer__block-link(href="#!") {{link.title}}
+                        a.footer__block-link(:href="link.href || '#!'") {{link.title}}
                 p.footer__block-copyright © 2000-2022, Все права защищены
 </template>
 

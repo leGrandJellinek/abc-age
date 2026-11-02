@@ -16,10 +16,10 @@ section.main__comments
             )
     .main__comments-contanier
         .main__comments-btns
-            button.main__comments-btn.prev
-                i.fa-solid.fa-chevron-left.icon
-            button.main__comments-btn.next
-                i.fa-solid.fa-chevron-right.icon
+            button.main__comments-btn.prev(type="button" aria-label="Предыдущий отзыв")
+                i.fa-solid.fa-chevron-left.icon(aria-hidden="true")
+            button.main__comments-btn.next(type="button" aria-label="Следующий отзыв")
+                i.fa-solid.fa-chevron-right.icon(aria-hidden="true")
 </template>
 
 <script setup lang="ts">
@@ -65,6 +65,7 @@ const modules = [Pagination, Navigation]
             background: #4475F2
             border-radius: 100px
             cursor: pointer
+            border: none
             i.icon 
                 font-size: 20px
                 color: white

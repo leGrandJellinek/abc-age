@@ -1,11 +1,11 @@
 <template lang="pug">
 .main__comments-item 
     .main__comments-item__left 
-        img(src="@/assets/icons/quotes.png")
+        img(src="@/assets/icons/quotes.png" alt="" aria-hidden="true")
         h2.main__comments-item__title {{item.title}}
         p.main__comments-item__descr {{item.comment}}
     .main__comments-item__right
-        img(:src="$getMainImage(item.img)")
+        img(:src="$getMainImage(item.img)" :alt="'Аватар ' + item.userName")
         h3.main__comments-item__name {{item.userName}}
         p.main__comments-item__city {{item.city}}
 </template>

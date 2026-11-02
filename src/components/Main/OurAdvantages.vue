@@ -1,5 +1,5 @@
 <template lang="pug">
-section.main__advantages
+section.main__advantages#advantages
         section-title Наши преимущества
         .main__advantages-block 
             AdvantagesItem(

@@ -1,5 +1,5 @@
 <template lang="pug">
-section.main__about
+section.main__about#about
     .main__about-left
         section-title о компании
         p.main__about-text
@@ -16,7 +16,7 @@ section.main__about
                 .main__about-number.blue 500+
                 p.main__about-descr Довольных клиентов
     .main__about-right
-        img(src="@/assets/images/main/AboutCompanyBG.png")
+        img(src="@/assets/images/main/AboutCompanyBG.png" alt="О компании abc-age и производственный процесс")
 </template>
 
 <script setup lang="ts">
