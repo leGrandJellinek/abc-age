@@ -7,7 +7,7 @@ section.main__blog
         :spaceBetween="25"
     )
         swiper-slide(
-            v-for="item in getBlogList"
+            v-for="item in blogStore.blogList"
             :key="item.id"
         )
             BlogItem(
@@ -16,13 +16,11 @@ section.main__blog
 </template>
 
 <script setup>
-import { computed } from "vue"
-import { useAppStore } from "@/store"
+import { useBlogStore } from "@/stores"
 import BlogItem from "@/components/Main/BlogItem.vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 
-const store = useAppStore()
-const getBlogList = computed(() => store.blogList)
+const blogStore = useBlogStore()
 </script>
 
 <style lang="sass" scoped>

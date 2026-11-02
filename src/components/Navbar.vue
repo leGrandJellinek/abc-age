@@ -24,18 +24,17 @@ nav.header__nav
                         a.header__nav-tel(href="tel:+3104372766") 310-437-2766
         .header__nav-bottom
             ul.header__nav-menu
-                li(v-for="item in getMenuList" :key="item.id")
+                li(v-for="item in navigationStore.menuList" :key="item.id")
                     a.header__nav-link(href="#!") {{item.title}}
 </template>
 
 <script setup>
 import { ref, computed } from "vue"
-import { useAppStore } from "@/store"
+import { useNavigationStore } from "@/stores"
 
-const store = useAppStore()
+const navigationStore = useNavigationStore()
 const search = ref("")
 
-const getMenuList = computed(() => store.menuList)
 const searchStatus = computed(() => search.value.length > 0)
 
 function clearSearch() {

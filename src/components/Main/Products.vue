@@ -19,7 +19,7 @@ section.main_products
                 i.fa-solid.fa-xmark.icon
     .main__products-block 
         ProductItem(
-            v-for="product in getProductList"
+            v-for="product in productsStore.productsList"
             :key="product.id"
             :product="product"
         )
@@ -27,12 +27,11 @@ section.main_products
 </template>
 
 <script setup>
-import { ref, computed } from "vue"
-import { useAppStore } from "@/store"
+import { ref } from "vue"
+import { useProductsStore } from "@/stores"
 import ProductItem from "@/components/Main/ProductItem.vue"
 
-const store = useAppStore()
-const getProductList = computed(() => store.productsList)
+const productsStore = useProductsStore()
 
 const tagsList = ref([
     {

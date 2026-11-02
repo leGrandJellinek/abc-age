@@ -3,10 +3,10 @@ footer.footer
     .footer__container
         .footer__block
             .footer__block-icons
-                a.footer__block-icon(href="#!" v-for="icon in getFooterIcons" :key="icon.id")
+                a.footer__block-icon(href="#!" v-for="icon in footerStore.footerIcons" :key="icon.id")
                     img(:src="$getIcon(icon.icon)")
             .footer__block-info
-                .footer__block-item(v-for="item in getFooterInfo" :key="item.id")
+                .footer__block-item(v-for="item in footerStore.footerInfo" :key="item.id")
                     button.footer__block-btn
                         img(:src="$getIcon(item.icon)")
                     .footer__block-div
@@ -14,18 +14,14 @@ footer.footer
                         a.footer__block-text(href="#!") {{item.info}}
             .footer__block-bottom
                 ul.footer__block-menu
-                    li(v-for="link in getMenuList" :key="link.id")
+                    li(v-for="link in navigationStore.menuList" :key="link.id")
                         a.footer__block-link(href="#!") {{link.title}}
                 p.footer__block-copyright © 2000-2022, Все права защищены
 </template>
 
 <script setup>
-import { computed } from "vue"
-import { useAppStore } from "@/store"
+import { useFooterStore, useNavigationStore } from "@/stores"
 
-const store = useAppStore()
-
-const getFooterIcons = computed(() => store.footerIcons)
-const getFooterInfo = computed(() => store.footerInfo)
-const getMenuList = computed(() => store.menuList)
+const footerStore = useFooterStore()
+const navigationStore = useNavigationStore()
 </script>

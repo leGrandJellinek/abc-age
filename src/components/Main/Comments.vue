@@ -9,7 +9,7 @@ section.main__comments
         :navigation="{prevEl:'.main__comments-btn.prev', nextEl:'.main__comments-btn.next'}"
         )
         swiper-slide(
-            v-for="item in getUsersComments"
+            v-for="item in commentsStore.usersComments"
             :key="item.id")
             Comment(
                 :item="item"
@@ -23,14 +23,12 @@ section.main__comments
 </template>
 
 <script setup>
-import { computed } from "vue"
-import { useAppStore } from "@/store"
+import { useCommentsStore } from "@/stores"
 import Comment from "@/components/Main/Comment.vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Pagination, Navigation } from "swiper"
 
-const store = useAppStore()
-const getUsersComments = computed(() => store.usersComments)
+const commentsStore = useCommentsStore()
 const modules = [Pagination, Navigation]
 </script>
 
