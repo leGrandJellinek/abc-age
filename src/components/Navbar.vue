@@ -30,12 +30,12 @@ nav.header__nav
 
 <script setup>
 import { ref, computed } from "vue"
-import { useStore } from "vuex"
+import { useAppStore } from "@/store"
 
-const store = useStore()
+const store = useAppStore()
 const search = ref("")
 
-const getMenuList = computed(() => store.getters.getMenuList)
+const getMenuList = computed(() => store.menuList)
 const searchStatus = computed(() => search.value.length > 0)
 
 function clearSearch() {

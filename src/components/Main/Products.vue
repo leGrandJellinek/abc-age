@@ -28,11 +28,11 @@ section.main_products
 
 <script setup>
 import { ref, computed } from "vue"
-import { useStore } from "vuex"
+import { useAppStore } from "@/store"
 import ProductItem from "@/components/Main/ProductItem.vue"
 
-const store = useStore()
-const getProductList = computed(() => store.getters.getProductList)
+const store = useAppStore()
+const getProductList = computed(() => store.productsList)
 
 const tagsList = ref([
     {

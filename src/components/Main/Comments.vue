@@ -24,13 +24,13 @@ section.main__comments
 
 <script setup>
 import { computed } from "vue"
-import { useStore } from "vuex"
+import { useAppStore } from "@/store"
 import Comment from "@/components/Main/Comment.vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Pagination, Navigation } from "swiper"
 
-const store = useStore()
-const getUsersComments = computed(() => store.getters.getUsersComments)
+const store = useAppStore()
+const getUsersComments = computed(() => store.usersComments)
 const modules = [Pagination, Navigation]
 </script>
 

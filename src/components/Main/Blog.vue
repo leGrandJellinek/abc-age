@@ -17,12 +17,12 @@ section.main__blog
 
 <script setup>
 import { computed } from "vue"
-import { useStore } from "vuex"
+import { useAppStore } from "@/store"
 import BlogItem from "@/components/Main/BlogItem.vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 
-const store = useStore()
-const getBlogList = computed(() => store.getters.getBlogList)
+const store = useAppStore()
+const getBlogList = computed(() => store.blogList)
 </script>
 
 <style lang="sass" scoped>

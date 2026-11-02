@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
-import store from './store'
 import { getMainImage, getIcon } from './utils/assets'
 
 /* Styles Import */
@@ -14,6 +14,7 @@ import "swiper/css/navigation"
 import components from "@/components/UI/UI"
 
 const app = createApp(App)
+const pinia = createPinia()
 
 app.config.globalProperties.$getMainImage = getMainImage
 app.config.globalProperties.$getIcon = getIcon
@@ -23,4 +24,4 @@ for (let i = 0; i < components.length; i++) {
     app.component(el.name, el)
 }
 
-app.use(store).use(router).mount('#app')
+app.use(pinia).use(router).mount('#app')

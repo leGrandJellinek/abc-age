@@ -21,11 +21,11 @@ footer.footer
 
 <script setup>
 import { computed } from "vue"
-import { useStore } from "vuex"
+import { useAppStore } from "@/store"
 
-const store = useStore()
+const store = useAppStore()
 
-const getFooterIcons = computed(() => store.getters.getFooterIcons)
-const getFooterInfo = computed(() => store.getters.getFooterInfo)
-const getMenuList = computed(() => store.getters.getMenuList)
+const getFooterIcons = computed(() => store.footerIcons)
+const getFooterInfo = computed(() => store.footerInfo)
+const getMenuList = computed(() => store.menuList)
 </script>

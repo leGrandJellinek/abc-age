@@ -4,10 +4,10 @@
 
 ## Стек технологий
 
-- **Vue 3** (Composition & Options API)
+- **Vue 3** (Composition API `<script setup>`)
 - **Vite 8**
-- **Vue Router 4**
-- **Vuex 4**
+- **Vue Router 5**
+- **Pinia 4**
 - **Pug**
 - **Sass / SCSS**
 - **Swiper 8**
