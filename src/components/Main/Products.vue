@@ -1,50 +1,63 @@
-<template lang="pug">
-section.main_products#products
-    .main__products-search
-        section-title Наши товары
-        div.input-block 
-            input.main__products-input(
-                v-model="searchQuery"
-                placeholder="Поиск по названию или описанию..."
-                aria-label="Поиск товаров"
-            )
-            i.fa-solid.fa-magnifying-glass.icon(aria-hidden="true")
-            button.clear-search-btn(
-                v-if="searchQuery"
-                type="button"
-                @click="searchQuery = ''"
-                aria-label="Очистить поиск"
-            )
-                i.fa-solid.fa-xmark(aria-hidden="true")
-    h2.main__products-title Популярные теги:
-    .main__products-tags
-        .main__products-tag(
-            v-for="tag in tagsList"
-            :key="tag.id"
-            :class="{ active: tag.active }"
-            @click="toggleTag(tag)"
-            role="button"
-            tabindex="0"
-            @keydown.enter="toggleTag(tag)"
-            @keydown.space.prevent="toggleTag(tag)"
-        ) {{ tag.title }}
-            button(
-                v-if="tag.active"
-                type="button"
-                @click.stop="tag.active = false"
-                aria-label="Снять фильтр"
-            )
-                i.fa-solid.fa-xmark.icon(aria-hidden="true")
-    .main__products-block(v-if="filteredProducts.length > 0")
-        ProductItem(
-            v-for="product in filteredProducts"
-            :key="product.id"
-            :product="product"
-        )
-    .main__products-empty(v-else)
-        p По вашему запросу ничего не найдено
-        button.main__products-reset(type="button" @click="resetFilters") Сбросить фильтры
-    .main__products-btn 
+<template>
+  <section class="main_products" id="products">
+    <div class="main__products-search">
+      <section-title>Наши товары</section-title>
+      <div class="input-block">
+        <input
+          class="main__products-input"
+          v-model="searchQuery"
+          placeholder="Поиск по названию или описанию..."
+          aria-label="Поиск товаров"
+        />
+        <i class="fa-solid fa-magnifying-glass icon" aria-hidden="true"></i>
+        <button
+          class="clear-search-btn"
+          v-if="searchQuery"
+          type="button"
+          @click="searchQuery = ''"
+          aria-label="Очистить поиск"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <h2 class="main__products-title">Популярные теги:</h2>
+    <div class="main__products-tags">
+      <div
+        class="main__products-tag"
+        v-for="tag in tagsList"
+        :key="tag.id"
+        :class="{ active: tag.active }"
+        @click="toggleTag(tag)"
+        role="button"
+        tabindex="0"
+        @keydown.enter="toggleTag(tag)"
+        @keydown.space.prevent="toggleTag(tag)"
+      >
+        {{ tag.title }}
+        <button
+          v-if="tag.active"
+          type="button"
+          @click.stop="tag.active = false"
+          aria-label="Снять фильтр"
+        >
+          <i class="fa-solid fa-xmark icon" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <div class="main__products-block" v-if="filteredProducts.length > 0">
+      <ProductItem
+        v-for="product in filteredProducts"
+        :key="product.id"
+        :product="product"
+      />
+    </div>
+    <div class="main__products-empty" v-else>
+      <p>По вашему запросу ничего не найдено</p>
+      <button class="main__products-reset" type="button" @click="resetFilters">Сбросить фильтры</button>
+    </div>
+    <div class="main__products-btn"></div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -102,7 +115,7 @@ function resetFilters(): void {
 
 const filteredProducts = computed(() => {
     let result = productsStore.productsList
-
+    
     const query = searchQuery.value.trim().toLowerCase()
     if (query) {
         result = result.filter(item => 

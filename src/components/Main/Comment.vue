@@ -1,13 +1,16 @@
-<template lang="pug">
-.main__comments-item 
-    .main__comments-item__left 
-        img(src="@/assets/icons/quotes.png" alt="" aria-hidden="true")
-        h3.main__comments-item__title {{item.title}}
-        p.main__comments-item__descr {{item.comment}}
-    .main__comments-item__right
-        img.main__comments-item__avatar(:src="$getMainImage(item.img)" :alt="'Аватар ' + item.userName")
-        h4.main__comments-item__name {{item.userName}}
-        p.main__comments-item__city {{item.city}}
+<template>
+  <div class="main__comments-item">
+    <div class="main__comments-item__left">
+      <img src="@/assets/icons/quotes.png" alt="" aria-hidden="true" />
+      <h3 class="main__comments-item__title">{{ item.title }}</h3>
+      <p class="main__comments-item__descr">{{ item.comment }}</p>
+    </div>
+    <div class="main__comments-item__right">
+      <img class="main__comments-item__avatar" :src="$getMainImage(item.img)" :alt="'Аватар ' + item.userName" />
+      <h4 class="main__comments-item__name">{{ item.userName }}</h4>
+      <p class="main__comments-item__city">{{ item.city }}</p>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

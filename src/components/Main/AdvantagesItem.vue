@@ -1,14 +1,15 @@
-<template lang="pug">
-.main__advantages-item 
-    h3.main__advantages-item__title {{item.title}}
-    p.main__advantages-item__descr {{item.descr}}
+<template>
+  <div class="main__advantages-item">
+    <h3 class="main__advantages-item__title">{{ item.title }}</h3>
+    <p class="main__advantages-item__descr">{{ item.descr }}</p>
+  </div>
 </template>
 
 <script setup lang="ts">
 import type { AdvantageItem } from "@/types"
 
 defineProps<{
-    item: AdvantageItem
+  item: AdvantageItem
 }>()
 </script>
 

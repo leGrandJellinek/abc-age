@@ -1,15 +1,18 @@
-<template lang="pug">
-.main__blog-item(
-    :style="{background: `url(${$getMainImage(item.img)}) no-repeat center /cover`}"
-) 
-    .main__blog-item__block
-        h3.main__blog-item__title {{item.title}}
-        p.main__blog-item__descr {{item.descr}}
-    a.main__blog-read(href="#blog" :aria-label="'Читать полностью: ' + item.title")
-        .circle(aria-hidden="true")
-        span Читать полностью
-        i.fa-solid.fa-angle-right.icon(aria-hidden="true")
-
+<template>
+  <div
+    class="main__blog-item"
+    :style="{ background: `url(${$getMainImage(item.img)}) no-repeat center /cover` }"
+  >
+    <div class="main__blog-item__block">
+      <h3 class="main__blog-item__title">{{ item.title }}</h3>
+      <p class="main__blog-item__descr">{{ item.descr }}</p>
+    </div>
+    <a class="main__blog-read" href="#blog" :aria-label="'Читать полностью: ' + item.title">
+      <div class="circle" aria-hidden="true"></div>
+      <span>Читать полностью</span>
+      <i class="fa-solid fa-angle-right icon" aria-hidden="true"></i>
+    </a>
+  </div>
 </template>
 
 <script setup lang="ts">

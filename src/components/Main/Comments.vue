@@ -1,25 +1,29 @@
-<template lang="pug">
-section.main__comments
-    h2.main__comments-title Почитайте отзывы довольных клиентов
-    swiper.main__comments-slider(
-        :slidesPerView="1"
-        :spaceBetween="-50"
-        :modules="modules"
-        :loop="true"
-        :navigation="{prevEl:'.main__comments-btn.prev', nextEl:'.main__comments-btn.next'}"
-        )
-        swiper-slide(
-            v-for="item in commentsStore.usersComments"
-            :key="item.id")
-            Comment(
-                :item="item"
-            )
-    .main__comments-contanier
-        .main__comments-btns
-            button.main__comments-btn.prev(type="button" aria-label="Предыдущий отзыв")
-                i.fa-solid.fa-chevron-left.icon(aria-hidden="true")
-            button.main__comments-btn.next(type="button" aria-label="Следующий отзыв")
-                i.fa-solid.fa-chevron-right.icon(aria-hidden="true")
+<template>
+  <section class="main__comments">
+    <h2 class="main__comments-title">Почитайте отзывы довольных клиентов</h2>
+    <swiper
+      class="main__comments-slider"
+      :slidesPerView="1"
+      :spaceBetween="-50"
+      :modules="modules"
+      :loop="true"
+      :navigation="{ prevEl: '.main__comments-btn.prev', nextEl: '.main__comments-btn.next' }"
+    >
+      <swiper-slide v-for="item in commentsStore.usersComments" :key="item.id">
+        <Comment :item="item" />
+      </swiper-slide>
+    </swiper>
+    <div class="main__comments-contanier">
+      <div class="main__comments-btns">
+        <button class="main__comments-btn prev" type="button" aria-label="Предыдущий отзыв">
+          <i class="fa-solid fa-chevron-left icon" aria-hidden="true"></i>
+        </button>
+        <button class="main__comments-btn next" type="button" aria-label="Следующий отзыв">
+          <i class="fa-solid fa-chevron-right icon" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">

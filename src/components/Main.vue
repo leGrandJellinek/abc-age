@@ -1,13 +1,16 @@
-<template lang="pug">
-main.main
-    .main__container
-        AboutCompany
-        Products
-        OurAdvantages
-        Discount
-    Comments
-    .main__container
-        Blog
+<template>
+  <main class="main">
+    <div class="main__container">
+      <AboutCompany />
+      <Products />
+      <OurAdvantages />
+      <Discount />
+    </div>
+    <Comments />
+    <div class="main__container">
+      <Blog />
+    </div>
+  </main>
 </template>
 
 <script setup lang="ts">

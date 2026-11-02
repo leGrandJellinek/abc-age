@@ -1,32 +1,37 @@
-<template lang="pug">
--let discount = "<span>скидку</span>"
--let ozon = "<span>Ozon</span>"
-
-section.main__discount#discount
-    .main__discount-block
-        .main__discount-info
-            h2.main__discount-info__title Получите !{discount} на !{ozon}
-            h2.main__discount-info__discount 40%
-        form.main__discount-form(v-if="!isSubmitted" @submit.prevent="handleSubmit")
-            h3.main__discount-form__title Заполните простую форму
-            p.main__discount-form__descr Оставьте свой номер телефона и получите скидку на OZON и год гарантии на любую игрушку.
-            .main__discount-form__field
-                input.main__discount-form__input(
-                    v-model="phone"
-                    type="tel"
-                    placeholder="+7 (___) ___-__-__"
-                    @input="formatPhone"
-                    required
-                    aria-label="Ваш номер телефона"
-                )
-                p.main__discount-form__error(v-if="errorMessage") {{ errorMessage }}
-            button.main__discount-form__btn(type="submit") Получить скидку!
-        .main__discount-form.main__discount-form--success(v-else)
-            i.fa-solid.fa-circle-check.main__discount-success__icon(aria-hidden="true")
-            h3.main__discount-form__title Спасибо за заявку!
-            p.main__discount-form__descr Мы отправили промокод на скидку 40% в SMS на номер {{ phone }}.
-            button.main__discount-form__btn(type="button" @click="resetForm") Отправить ещё раз
-
+<template>
+  <section class="main__discount" id="discount">
+    <div class="main__discount-block">
+      <div class="main__discount-info">
+        <h2 class="main__discount-info__title">Получите <span>скидку</span> на <span>Ozon</span></h2>
+        <h2 class="main__discount-info__discount">40%</h2>
+      </div>
+      <form class="main__discount-form" v-if="!isSubmitted" @submit.prevent="handleSubmit">
+        <h3 class="main__discount-form__title">Заполните простую форму</h3>
+        <p class="main__discount-form__descr">
+          Оставьте свой номер телефона и получите скидку на OZON и год гарантии на любую игрушку.
+        </p>
+        <div class="main__discount-form__field">
+          <input
+            class="main__discount-form__input"
+            v-model="phone"
+            type="tel"
+            placeholder="+7 (___) ___-__-__"
+            @input="formatPhone"
+            required
+            aria-label="Ваш номер телефона"
+          />
+          <p class="main__discount-form__error" v-if="errorMessage">{{ errorMessage }}</p>
+        </div>
+        <button class="main__discount-form__btn" type="submit">Получить скидку!</button>
+      </form>
+      <div class="main__discount-form main__discount-form--success" v-else>
+        <i class="fa-solid fa-circle-check main__discount-success__icon" aria-hidden="true"></i>
+        <h3 class="main__discount-form__title">Спасибо за заявку!</h3>
+        <p class="main__discount-form__descr">Мы отправили промокод на скидку 40% в SMS на номер {{ phone }}.</p>
+        <button class="main__discount-form__btn" type="button" @click="resetForm">Отправить ещё раз</button>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">

@@ -1,18 +1,22 @@
-<template lang="pug">
-section.main__blog#blog
-    section-title.main__blog-title блог
-    p.main__blog-descr Massa commodo leo amet in feugiat non, commodo. Augue senectus felis, suspendisse amet suscipit vestibulum lobortis ornare sed. Pharetra, in duis tortor, iaculis mi magna urna nullam. 
-    swiper.main__blog-block(
-        :slidesPerView="'auto'"
-        :spaceBetween="25"
-    )
-        swiper-slide(
-            v-for="item in blogStore.blogList"
-            :key="item.id"
-        )
-            BlogItem(
-                :item="item"
-            )
+<template>
+  <section class="main__blog" id="blog">
+    <section-title class="main__blog-title">блог</section-title>
+    <p class="main__blog-descr">
+      Massa commodo leo amet in feugiat non, commodo. Augue senectus felis, suspendisse amet suscipit vestibulum lobortis ornare sed. Pharetra, in duis tortor, iaculis mi magna urna nullam.
+    </p>
+    <swiper
+      class="main__blog-block"
+      :slidesPerView="'auto'"
+      :spaceBetween="25"
+    >
+      <swiper-slide
+        v-for="item in blogStore.blogList"
+        :key="item.id"
+      >
+        <BlogItem :item="item" />
+      </swiper-slide>
+    </swiper>
+  </section>
 </template>
 
 <script setup lang="ts">

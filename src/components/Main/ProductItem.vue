@@ -1,22 +1,33 @@
-<template lang="pug">
-.main__products-item
-    .main__products-item__top
-        img.item-img(:src="$getMainImage(product.img)" :alt="product.title")
-    .main__products-item__bottom
-        h3.main__products-item__title {{product.title}}
-        .main__products-item__rev
-            .main__products-item__stars
-                img(
-                src="@/assets/icons/star.svg"
-                v-for="star in product.stars"
-                :key="star"
-                alt=""
-                aria-hidden="true")
-            span.main__products-item__coun-rev ({{product.reviews}})
-        p.main__products-item__descr {{product.descr}}
-        .main__products-item__btns
-            button.main__products-item__btn(type="button" :aria-label="'Купить ' + product.title + ' на OZON'") Купить на OZON
-            button.main__products-item__btn(type="button" :aria-label="'Купить ' + product.title + ' на Wildberries'") Купить на WB
+<template>
+  <div class="main__products-item">
+    <div class="main__products-item__top">
+      <img class="item-img" :src="$getMainImage(product.img)" :alt="product.title" />
+    </div>
+    <div class="main__products-item__bottom">
+      <h3 class="main__products-item__title">{{ product.title }}</h3>
+      <div class="main__products-item__rev">
+        <div class="main__products-item__stars">
+          <img
+            src="@/assets/icons/star.svg"
+            v-for="star in product.stars"
+            :key="star"
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+        <span class="main__products-item__coun-rev">({{ product.reviews }})</span>
+      </div>
+      <p class="main__products-item__descr">{{ product.descr }}</p>
+      <div class="main__products-item__btns">
+        <button class="main__products-item__btn" type="button" :aria-label="'Купить ' + product.title + ' на OZON'">
+          Купить на OZON
+        </button>
+        <button class="main__products-item__btn" type="button" :aria-label="'Купить ' + product.title + ' на Wildberries'">
+          Купить на WB
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

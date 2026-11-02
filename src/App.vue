@@ -1,8 +1,9 @@
-<template lang="pug">
-.wrapper
-  Header
-  router-view
-  Footer
+<template>
+  <div class="wrapper">
+    <Header />
+    <router-view />
+    <Footer />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -11,5 +12,4 @@ import Footer from "@/components/Footer.vue"
 </script>
 
 <style>
-
 </style>

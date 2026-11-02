@@ -1,11 +1,12 @@
-<template lang="pug">
-h2.black-title
-    slot
+<template>
+  <h2 class="black-title">
+    <slot />
+  </h2>
 </template>
 
 <script setup lang="ts">
 defineOptions({
-    name: "section-title"
+  name: "section-title"
 })
 </script>
 

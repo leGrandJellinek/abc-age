@@ -1,13 +1,15 @@
-<template lang="pug">
-section.main__advantages#advantages
-        section-title Наши преимущества
-        .main__advantages-block 
-            AdvantagesItem(
-            v-for="item in advantagesList"
-            :key="item.id"
-            :item="item"
-            :style="{background: item.color}"
-            )
+<template>
+  <section class="main__advantages" id="advantages">
+    <section-title>Наши преимущества</section-title>
+    <div class="main__advantages-block">
+      <AdvantagesItem
+        v-for="item in advantagesList"
+        :key="item.id"
+        :item="item"
+        :style="{ background: item.color }"
+      />
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
