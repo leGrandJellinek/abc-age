@@ -27,76 +27,80 @@ defineProps<{
 }>()
 </script>
 
-<style lang="sass">
-.main
-    &__products
-        &-block 
-            display: grid
-            grid-template-columns: repeat(3,1fr)
-            column-gap: 30px
-            row-gap: 15px
-        &-item 
-            border-radius: 15px
-            overflow: hidden
-            background: #4475F2
-            border: 2px solid #5DBF79
-            display: flex
-            flex-direction: column
-            &__stars
-                display: flex
-                gap: 4px
-            &__rev
-                display: flex
-                gap: 10px
-                align-items: center
-            &__coun-rev 
-                font-family: 'Poppins'
-                font-weight: 400
-                font-size: 16px
-                line-height: 150%
-                color: rgba(255, 255, 255, 0.4) 
-            &__bottom
-                padding: 25px 40px 40px 31px
-                display: flex
-                flex-direction: column
-                flex-grow: 1
-            &__btns 
-                display: flex
-                gap: 10px
-                margin-top: auto
-            &__btn 
-                flex: 1
-                height: 50px
-                background: #FFFFFF
-                border-radius: 25px
-                display: flex
-                align-items: center 
-                justify-content: center 
-                font-family: 'TTNorms'
-                font-weight: 500
-                font-size: 15px
-                line-height: 150%
-                color: #4475F2
-                cursor: pointer
-                border: none
-                transition: opacity 0.2s, transform 0.1s
-                &:hover
-                    opacity: 0.95
-                &:active
-                    transform: scale(0.98)
-            &__title 
-                font-family: 'TTNorms'
-                font-weight: 700
-                font-size: 24px
-                line-height: 150%
-                color: #FFFFFF
-            &__descr 
-                font-family: 'TTNorms'
-                font-weight: 400
-                font-size: 17px
-                line-height: 20px
-                color: #FFFFFF
-                margin-top: 15px
-                margin-bottom: 30px
-
+<style lang="sass" scoped>
+.main__products-item 
+    border-radius: 15px
+    overflow: hidden
+    background: #4475F2
+    border: 2px solid #5DBF79
+    display: flex
+    flex-direction: column
+    height: 100%
+    &__top 
+        overflow: hidden
+        display: flex
+        align-items: center
+        justify-content: center
+        background: #f7f9fc
+        .item-img
+            width: 100%
+            height: auto
+            object-fit: cover
+            display: block
+    &__stars
+        display: flex
+        gap: 4px
+    &__rev
+        display: flex
+        gap: 10px
+        align-items: center
+    &__coun-rev 
+        font-family: 'Poppins', sans-serif
+        font-weight: 400
+        font-size: 16px
+        line-height: 150%
+        color: rgba(255, 255, 255, 0.6) 
+    &__bottom
+        padding: 25px 30px 30px
+        display: flex
+        flex-direction: column
+        flex-grow: 1
+    &__btns 
+        display: flex
+        gap: 10px
+        margin-top: auto
+    &__btn 
+        flex: 1
+        height: 50px
+        background: #FFFFFF
+        border-radius: 25px
+        display: flex
+        align-items: center 
+        justify-content: center 
+        font-family: 'TTNorms', sans-serif
+        font-weight: 500
+        font-size: 15px
+        line-height: 150%
+        color: #4475F2
+        cursor: pointer
+        border: none
+        transition: opacity 0.2s, transform 0.1s
+        &:hover
+            opacity: 0.95
+        &:active
+            transform: scale(0.98)
+    &__title 
+        font-family: 'TTNorms', sans-serif
+        font-weight: 700
+        font-size: 22px
+        line-height: 140%
+        color: #FFFFFF
+    &__descr 
+        font-family: 'TTNorms', sans-serif
+        font-weight: 400
+        font-size: 16px
+        line-height: 22px
+        color: #FFFFFF
+        margin-top: 12px
+        margin-bottom: 24px
 </style>

@@ -32,54 +32,55 @@ const commentsStore = useCommentsStore()
 const modules = [Pagination, Navigation]
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .main
     &__comments
         background: #F2F6FA
-        padding-bottom: 100px
-        padding-top: 100px
+        padding-bottom: 80px
+        padding-top: 80px
         display: flex
         flex-direction: column
-        gap: 80px
+        gap: 60px
         &-slider 
             max-width: 1920px
             width: 100%
+            padding: 0 16px
+            box-sizing: border-box
         &-title 
-            font-family: 'TTNorms'
+            font-family: 'TTNorms', sans-serif
             font-weight: 500
-            font-size: 48px
-            line-height: 60px
+            font-size: clamp(28px, 4vw, 48px)
+            line-height: 125%
             text-align: center
             letter-spacing: -1px
             color: #2E363E
+            padding: 0 16px
         &-btns
             display: flex
             gap: 24px
             justify-content: center
         &-btn
-            width: 66px
-            height: 66px
+            width: 56px
+            height: 56px
             display: flex
             align-items: center 
             justify-content: center
             background: #4475F2
-            border-radius: 100px
+            border-radius: 50%
             cursor: pointer
             border: none
+            transition: background 0.2s, transform 0.1s
+            &:hover
+                background: #3361d8
+            &:active
+                transform: scale(0.95)
             i.icon 
-                font-size: 20px
+                font-size: 18px
                 color: white
-.swiper-slide 
-    display: -webkit-box
-    display: -ms-flexbox
-    display: -webkit-flex
+
+:deep(.swiper-slide)
     display: flex
-    -webkit-box-pack: center
-    -ms-flex-pack: center
-    -webkit-justify-content: center
     justify-content: center
-    -webkit-box-align: center
-    -ms-flex-align: center
-    -webkit-align-items: center
     align-items: center
+    padding: 10px 0
 </style>

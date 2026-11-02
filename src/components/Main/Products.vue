@@ -8,14 +8,14 @@ section.main_products#products
                 placeholder="Поиск по названию или описанию..."
                 aria-label="Поиск товаров"
             )
-            i.fa-solid.fa-magnifying-glass.icon
+            i.fa-solid.fa-magnifying-glass.icon(aria-hidden="true")
             button.clear-search-btn(
                 v-if="searchQuery"
                 type="button"
                 @click="searchQuery = ''"
                 aria-label="Очистить поиск"
             )
-                i.fa-solid.fa-xmark
+                i.fa-solid.fa-xmark(aria-hidden="true")
     h2.main__products-title Популярные теги:
     .main__products-tags
         .main__products-tag(
@@ -34,7 +34,7 @@ section.main_products#products
                 @click.stop="tag.active = false"
                 aria-label="Снять фильтр"
             )
-                i.fa-solid.fa-xmark.icon
+                i.fa-solid.fa-xmark.icon(aria-hidden="true")
     .main__products-block(v-if="filteredProducts.length > 0")
         ProductItem(
             v-for="product in filteredProducts"
@@ -103,7 +103,6 @@ function resetFilters(): void {
 const filteredProducts = computed(() => {
     let result = productsStore.productsList
 
-    // Поиск по строке
     const query = searchQuery.value.trim().toLowerCase()
     if (query) {
         result = result.filter(item => 
@@ -112,19 +111,15 @@ const filteredProducts = computed(() => {
         )
     }
 
-    // Фильтр по активным тегам
     const activeTags = tagsList.value.filter(t => t.active).map(t => t.id)
     if (activeTags.length > 0) {
         if (activeTags.includes(5)) {
-            // Тег: Высокий рейтинг 5 звезд
             result = result.filter(item => item.stars === 5)
         }
         if (activeTags.includes(4)) {
-            // Тег: Хиты продаж (много отзывов)
             result = result.filter(item => item.reviews >= 100)
         }
         if (activeTags.includes(3)) {
-            // Тег: Для малышей (первые игрушки)
             result = result.filter(item => item.id % 2 === 1)
         }
     }
@@ -133,13 +128,14 @@ const filteredProducts = computed(() => {
 })
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .main
     &__products 
         &-search 
             display: flex
             gap: 20px
             align-items: center
+            flex-wrap: wrap
             & div.input-block 
                 position: relative
                 display: flex
@@ -160,7 +156,7 @@ const filteredProducts = computed(() => {
                     &:hover
                         color: #1B1717
         &-title 
-            font-family: 'TTNorms'
+            font-family: 'TTNorms', sans-serif
             font-weight: 500
             font-size: 20px
             line-height: 24px
@@ -172,9 +168,10 @@ const filteredProducts = computed(() => {
             background: #F0F1F2
             border-radius: 30px
             padding: 17px 44px
-            width: 348px
+            width: 100%
+            max-width: 348px
             border: 1px solid transparent
-            font-family: 'TTNorms'
+            font-family: 'TTNorms', sans-serif
             font-weight: 400
             font-size: 14px
             line-height: 16px
@@ -193,7 +190,7 @@ const filteredProducts = computed(() => {
             background: #6991F5
             border-radius: 10px
             cursor: pointer
-            font-family: 'TTNorms'
+            font-family: 'TTNorms', sans-serif
             font-weight: 400
             font-size: 16px
             line-height: 19px
@@ -220,13 +217,22 @@ const filteredProducts = computed(() => {
                 i.icon 
                     font-size: 14px
                     color: #FFFFFF
+        &-block 
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
+            column-gap: 30px
+            row-gap: 30px
+            @media (max-width: 1199px)
+                grid-template-columns: repeat(2, 1fr)
+            @media (max-width: 767px)
+                grid-template-columns: 1fr
         &-empty
             padding: 60px 20px
             text-align: center
             background: #F8FAFC
             border-radius: 12px
             p
-                font-family: 'TTNorms'
+                font-family: 'TTNorms', sans-serif
                 font-size: 20px
                 color: #728095
                 margin-bottom: 16px
@@ -236,7 +242,7 @@ const filteredProducts = computed(() => {
             border: none
             padding: 12px 24px
             border-radius: 20px
-            font-family: 'TTNorms'
+            font-family: 'TTNorms', sans-serif
             font-size: 14px
             cursor: pointer
             transition: background 0.2s

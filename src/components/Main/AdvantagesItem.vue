@@ -1,6 +1,6 @@
 <template lang="pug">
 .main__advantages-item 
-    h2.main__advantages-item__title {{item.title}}
+    h3.main__advantages-item__title {{item.title}}
     p.main__advantages-item__descr {{item.descr}}
 </template>
 
@@ -12,10 +12,26 @@ defineProps<{
 }>()
 </script>
 
-<style lang="sass">
-.main
-    &__advantages
-        &-item 
-            padding: 30px
-            height: 296px
+<style lang="sass" scoped>
+.main__advantages-item 
+    padding: 30px
+    min-height: 296px
+    height: 100%
+    box-sizing: border-box
+    border-radius: 12px
+    display: flex
+    flex-direction: column
+    gap: 15px
+    &__title
+        font-family: 'TTNorms', sans-serif
+        font-weight: 700
+        font-size: 24px
+        line-height: 140%
+        color: #FFFFFF
+    &__descr
+        font-family: 'TTNorms', sans-serif
+        font-weight: 400
+        font-size: 16px
+        line-height: 24px
+        color: #FFFFFF
 </style>

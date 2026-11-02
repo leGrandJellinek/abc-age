@@ -22,7 +22,7 @@ section.main__discount#discount
                 p.main__discount-form__error(v-if="errorMessage") {{ errorMessage }}
             button.main__discount-form__btn(type="submit") Получить скидку!
         .main__discount-form.main__discount-form--success(v-else)
-            i.fa-solid.fa-circle-check.main__discount-success__icon
+            i.fa-solid.fa-circle-check.main__discount-success__icon(aria-hidden="true")
             h3.main__discount-form__title Спасибо за заявку!
             p.main__discount-form__descr Мы отправили промокод на скидку 40% в SMS на номер {{ phone }}.
             button.main__discount-form__btn(type="button" @click="resetForm") Отправить ещё раз
@@ -77,7 +77,7 @@ function resetForm(): void {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .main__discount
     &-form
         &__field
@@ -88,7 +88,7 @@ function resetForm(): void {
         &__error
             font-size: 13px
             color: #ff4757
-            font-family: 'TTNorms'
+            font-family: 'TTNorms', sans-serif
         &--success
             display: flex
             flex-direction: column
