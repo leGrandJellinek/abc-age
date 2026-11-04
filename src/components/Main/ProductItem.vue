@@ -19,12 +19,24 @@
       </div>
       <p class="main__products-item__descr">{{ product.descr }}</p>
       <div class="main__products-item__btns">
-        <button class="main__products-item__btn" type="button" :aria-label="'Купить ' + product.title + ' на OZON'">
+        <a
+          class="main__products-item__btn"
+          :href="`https://www.ozon.ru/search/?text=${encodeURIComponent(product.title)}`"
+          target="_blank"
+          rel="noopener noreferrer"
+          :aria-label="'Купить ' + product.title + ' на OZON'"
+        >
           Купить на OZON
-        </button>
-        <button class="main__products-item__btn" type="button" :aria-label="'Купить ' + product.title + ' на Wildberries'">
+        </a>
+        <a
+          class="main__products-item__btn"
+          :href="`https://www.wildberries.ru/catalog/0/search.aspx?search=${encodeURIComponent(product.title)}`"
+          target="_blank"
+          rel="noopener noreferrer"
+          :aria-label="'Купить ' + product.title + ' на Wildberries'"
+        >
           Купить на WB
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -95,6 +107,7 @@ defineProps<{
         line-height: 150%
         color: #4475F2
         cursor: pointer
+        text-decoration: none
         border: none
         transition: opacity 0.2s, transform 0.1s
         &:hover
