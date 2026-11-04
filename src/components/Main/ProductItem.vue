@@ -1,7 +1,7 @@
 <template>
   <div class="main__products-item">
     <div class="main__products-item__top">
-      <img class="item-img" :src="$getMainImage(product.img)" :alt="product.title" />
+      <img class="item-img" :src="getMainImage(product.img)" :alt="product.title" />
     </div>
     <div class="main__products-item__bottom">
       <h3 class="main__products-item__title">{{ product.title }}</h3>
@@ -32,6 +32,7 @@
 
 <script setup lang="ts">
 import type { Product } from "@/types"
+import { getMainImage } from "@/utils/assets"
 
 defineProps<{
     product: Product

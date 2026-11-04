@@ -6,7 +6,7 @@
       <p class="main__comments-item__descr">{{ item.comment }}</p>
     </div>
     <div class="main__comments-item__right">
-      <img class="main__comments-item__avatar" :src="$getMainImage(item.img)" :alt="'Аватар ' + item.userName" />
+      <img class="main__comments-item__avatar" :src="getMainImage(item.img)" :alt="'Аватар ' + item.userName" />
       <h4 class="main__comments-item__name">{{ item.userName }}</h4>
       <p class="main__comments-item__city">{{ item.city }}</p>
     </div>
@@ -15,6 +15,7 @@
 
 <script setup lang="ts">
 import type { CommentItem } from "@/types"
+import { getMainImage } from "@/utils/assets"
 
 defineProps<{
     item: CommentItem

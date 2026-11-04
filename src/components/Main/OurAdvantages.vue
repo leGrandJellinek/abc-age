@@ -1,6 +1,6 @@
 <template>
   <section class="main__advantages" id="advantages">
-    <section-title>Наши преимущества</section-title>
+    <SectionBlackTitle>Наши преимущества</SectionBlackTitle>
     <div class="main__advantages-block">
       <AdvantagesItem
         v-for="item in advantagesList"
@@ -15,6 +15,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import type { AdvantageItem } from "@/types"
+import SectionBlackTitle from "@/components/UI/SectionBlackTitle.vue"
 import AdvantagesItem from "@/components/Main/AdvantagesItem.vue"
 
 const advantagesList = ref<AdvantageItem[]>([

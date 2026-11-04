@@ -12,13 +12,13 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img :src="$getIcon(icon.icon)" alt="" aria-hidden="true" />
+            <img :src="getIcon(icon.icon)" alt="" aria-hidden="true" />
           </a>
         </div>
         <div class="footer__block-info">
           <div class="footer__block-item" v-for="item in footerStore.footerInfo" :key="item.id">
             <button class="footer__block-btn" type="button" :aria-label="item.title">
-              <img :src="$getIcon(item.icon)" alt="" aria-hidden="true" />
+              <img :src="getIcon(item.icon)" alt="" aria-hidden="true" />
             </button>
             <div class="footer__block-div">
               <p class="footer__block-title">{{ item.title }}</p>
@@ -46,6 +46,7 @@
 
 <script setup lang="ts">
 import { useFooterStore, useNavigationStore } from "@/stores"
+import { getIcon } from "@/utils/assets"
 
 const footerStore = useFooterStore()
 const navigationStore = useNavigationStore()

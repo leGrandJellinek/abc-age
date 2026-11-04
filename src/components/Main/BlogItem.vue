@@ -1,7 +1,7 @@
 <template>
   <div
     class="main__blog-item"
-    :style="{ background: `url(${$getMainImage(item.img)}) no-repeat center /cover` }"
+    :style="{ background: `url(${getMainImage(item.img)}) no-repeat center /cover` }"
   >
     <div class="main__blog-item__block">
       <h3 class="main__blog-item__title">{{ item.title }}</h3>
@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import type { BlogPost } from "@/types"
+import { getMainImage } from "@/utils/assets"
 
 defineProps<{
     item: BlogPost

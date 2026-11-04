@@ -1,7 +1,7 @@
 <template>
   <section class="main__about" id="about">
     <div class="main__about-left">
-      <section-title>о компании</section-title>
+      <SectionBlackTitle>о компании</SectionBlackTitle>
       <p class="main__about-text">
         <span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</span>
         <span>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</span>
@@ -28,4 +28,5 @@
 </template>
 
 <script setup lang="ts">
+import SectionBlackTitle from "@/components/UI/SectionBlackTitle.vue"
 </script>

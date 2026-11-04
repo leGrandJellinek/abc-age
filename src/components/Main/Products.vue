@@ -1,7 +1,7 @@
 <template>
   <section class="main_products" id="products">
     <div class="main__products-search">
-      <section-title>Наши товары</section-title>
+      <SectionBlackTitle>Наши товары</SectionBlackTitle>
       <div class="input-block">
         <input
           class="main__products-input"
@@ -62,6 +62,7 @@
 
 <script setup lang="ts">
 import { useProductsStore } from "@/stores"
+import SectionBlackTitle from "@/components/UI/SectionBlackTitle.vue"
 import ProductItem from "@/components/Main/ProductItem.vue"
 
 const productsStore = useProductsStore()

@@ -1,6 +1,6 @@
 <template>
   <section class="main__blog" id="blog">
-    <section-title class="main__blog-title">блог</section-title>
+    <SectionBlackTitle class="main__blog-title">блог</SectionBlackTitle>
     <p class="main__blog-descr">
       Massa commodo leo amet in feugiat non, commodo. Augue senectus felis, suspendisse amet suscipit vestibulum lobortis ornare sed. Pharetra, in duis tortor, iaculis mi magna urna nullam.
     </p>
@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
 import { useBlogStore } from "@/stores"
+import SectionBlackTitle from "@/components/UI/SectionBlackTitle.vue"
 import BlogItem from "@/components/Main/BlogItem.vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 
