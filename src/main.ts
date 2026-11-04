@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
-import router from './router'
 import { getMainImage, getIcon } from './utils/assets'
 
 /* Styles Import */
@@ -26,4 +25,4 @@ for (let i = 0; i < components.length; i++) {
   }
 }
 
-app.use(pinia).use(router).mount('#app')
+app.use(pinia).mount('#app')
