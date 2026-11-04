@@ -41,6 +41,10 @@ export interface Product {
   stars: number
   descr: string
   img: string
+  category?: 'toddlers' | 'creative' | 'educational'
+  isHit?: boolean
+  isNew?: boolean
+  isWholesale?: boolean
 }
 
 export interface AdvantageItem {

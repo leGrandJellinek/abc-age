@@ -5,16 +5,16 @@
       <div class="input-block">
         <input
           class="main__products-input"
-          v-model="searchQuery"
+          v-model="productsStore.searchQuery"
           placeholder="Поиск по названию или описанию..."
           aria-label="Поиск товаров"
         />
         <i class="fa-solid fa-magnifying-glass icon" aria-hidden="true"></i>
         <button
           class="clear-search-btn"
-          v-if="searchQuery"
+          v-if="productsStore.searchQuery"
           type="button"
-          @click="searchQuery = ''"
+          @click="productsStore.searchQuery = ''"
           aria-label="Очистить поиск"
         >
           <i class="fa-solid fa-xmark" aria-hidden="true"></i>
@@ -25,120 +25,46 @@
     <div class="main__products-tags">
       <div
         class="main__products-tag"
-        v-for="tag in tagsList"
+        v-for="tag in productsStore.tagsList"
         :key="tag.id"
         :class="{ active: tag.active }"
-        @click="toggleTag(tag)"
+        @click="productsStore.toggleTag(tag.id)"
         role="button"
         tabindex="0"
-        @keydown.enter="toggleTag(tag)"
-        @keydown.space.prevent="toggleTag(tag)"
+        @keydown.enter="productsStore.toggleTag(tag.id)"
+        @keydown.space.prevent="productsStore.toggleTag(tag.id)"
       >
         {{ tag.title }}
         <button
           v-if="tag.active"
           type="button"
-          @click.stop="tag.active = false"
+          @click.stop="productsStore.toggleTag(tag.id)"
           aria-label="Снять фильтр"
         >
           <i class="fa-solid fa-xmark icon" aria-hidden="true"></i>
         </button>
       </div>
     </div>
-    <div class="main__products-block" v-if="filteredProducts.length > 0">
+    <div class="main__products-block" v-if="productsStore.filteredProducts.length > 0">
       <ProductItem
-        v-for="product in filteredProducts"
+        v-for="product in productsStore.filteredProducts"
         :key="product.id"
         :product="product"
       />
     </div>
     <div class="main__products-empty" v-else>
       <p>По вашему запросу ничего не найдено</p>
-      <button class="main__products-reset" type="button" @click="resetFilters">Сбросить фильтры</button>
+      <button class="main__products-reset" type="button" @click="productsStore.resetFilters">Сбросить фильтры</button>
     </div>
     <div class="main__products-btn"></div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue"
 import { useProductsStore } from "@/stores"
-import type { TagItem } from "@/types"
 import ProductItem from "@/components/Main/ProductItem.vue"
 
 const productsStore = useProductsStore()
-const searchQuery = ref<string>("")
-
-const tagsList = ref<TagItem[]>([
-    {
-        id: 1,
-        title: "Игрушки оптом и в розницу",
-        active: false,
-    },
-    {
-        id: 2,
-        title: "Оптовый магазин",
-        active: false,
-    },
-    {
-        id: 3,
-        title: "Для малышей",
-        active: false,
-    }, 
-    {
-        id: 4,
-        title: "Хиты продаж",
-        active: false,
-    }, 
-    {
-        id: 5,
-        title: "Высокий рейтинг 5★",
-        active: false,
-    }, 
-    {
-        id: 6,
-        title: "Новинки",
-        active: false,
-    }, 
-])
-
-function toggleTag(tag: TagItem): void {
-    tag.active = !tag.active
-}
-
-function resetFilters(): void {
-    searchQuery.value = ""
-    tagsList.value.forEach(tag => {
-        tag.active = false
-    })
-}
-
-const filteredProducts = computed(() => {
-    let result = productsStore.productsList
-    
-    const query = searchQuery.value.trim().toLowerCase()
-    if (query) {
-        result = result.filter(item => 
-            item.title.toLowerCase().includes(query) || 
-            item.descr.toLowerCase().includes(query)
-        )
-    }
-
-    const activeTags = tagsList.value.filter(t => t.active).map(t => t.id)
-    if (activeTags.length > 0) {
-        if (activeTags.includes(5)) {
-            result = result.filter(item => item.stars === 5)
-        }
-        if (activeTags.includes(4)) {
-            result = result.filter(item => item.reviews >= 100)
-        }
-        if (activeTags.includes(3)) {
-            result = result.filter(item => item.id % 2 === 1)
-        }
-    }
-
-    return result
-})
 </script>
 
 <style lang="sass" scoped>

@@ -12,8 +12,8 @@
           <p class="main__about-descr">лет работы</p>
         </div>
         <div class="main__about-item">
-          <div class="main__about-number green">6+</div>
-          <p class="main__about-descr">лет работы</p>
+          <div class="main__about-number green">10k+</div>
+          <p class="main__about-descr">товаров в наличии</p>
         </div>
         <div class="main__about-item">
           <div class="main__about-number blue">500+</div>
