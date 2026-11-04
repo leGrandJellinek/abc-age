@@ -1,35 +1,43 @@
-*
+*, *::before, *::after
     margin: 0
     padding: 0
-    box-sizing: border-box !important
+    box-sizing: border-box
 
 a 
     text-decoration: none
+    color: inherit
 
 ul 
     list-style: none
 
 body
-    font-family: 'TTNorms'
+    font-family: 'TTNorms', sans-serif
     font-weight: $Regular
+    color: #1B1717
+    background-color: #FFFFFF
 
 textarea
     resize: none
-    outline: none
     border: none
     background: none  
 
 input 
-    outline: none
     border: none
     background: none
-
 
 button 
     background: none
-    outline: none
     border: none
+    font: inherit
+    color: inherit
 
+:focus-visible
+    outline: 2px solid #4475F2
+    outline-offset: 2px
+
+button, a, input, textarea
+    &:focus:not(:focus-visible)
+        outline: none
 
 .container 
     @include container()

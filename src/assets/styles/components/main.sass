@@ -55,27 +55,11 @@
         flex-direction: column
         gap: 38px
         &-block 
-            display: flex
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
             gap: 29px
-        &-item 
-            border-radius: 20px
-            display: flex
-            flex-direction: column
-            gap: 61px
-            &__title 
-                font-family: 'TTNorms'
-                font-weight: 900
-                font-size: 25px
-                line-height: 30px
-                letter-spacing: 0.07em
-                text-transform: uppercase
-                color: #FFFFFF
-            &__descr 
-                font-family: 'TTNorms'
-                font-weight: 400
-                font-size: 20px
-                line-height: 24px
-                color: #FFFFFF
+            @media (max-width: 991px)
+                grid-template-columns: 1fr
     &__discount
         &-block 
             background: url("@/assets/images/main/ozon-discount.png") no-repeat center / cover 
