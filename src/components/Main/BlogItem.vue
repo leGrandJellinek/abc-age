@@ -10,7 +10,7 @@
     <a class="main__blog-read" href="#blog" :aria-label="'Читать полностью: ' + item.title">
       <div class="circle" aria-hidden="true"></div>
       <span>Читать полностью</span>
-      <i class="fa-solid fa-angle-right icon" aria-hidden="true"></i>
+      <IconAngleRight class="icon" />
     </a>
   </div>
 </template>
@@ -18,6 +18,7 @@
 <script setup lang="ts">
 import type { BlogPost } from "@/types"
 import { getMainImage } from "@/utils/assets"
+import IconAngleRight from "@/components/icons/IconAngleRight.vue"
 
 defineProps<{
     item: BlogPost
@@ -82,7 +83,8 @@ defineProps<{
             font-size: 17px
             line-height: 21px
             color: #FFFFFF
-        & i.icon 
-            font-size: 13px
+        & .icon 
+            width: 14px
+            height: 14px
             color: #FFFFFF
 </style>

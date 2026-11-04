@@ -25,7 +25,7 @@
         <button class="main__discount-form__btn" type="submit">Получить скидку!</button>
       </form>
       <div class="main__discount-form main__discount-form--success" v-else>
-        <i class="fa-solid fa-circle-check main__discount-success__icon" aria-hidden="true"></i>
+        <IconCheckCircle class="main__discount-success__icon" />
         <h3 class="main__discount-form__title">Спасибо за заявку!</h3>
         <p class="main__discount-form__descr">Мы отправили промокод на скидку 40% в SMS на номер {{ phone }}.</p>
         <button class="main__discount-form__btn" type="button" @click="resetForm">Отправить ещё раз</button>
@@ -36,6 +36,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
+import IconCheckCircle from "@/components/icons/IconCheckCircle.vue"
 
 const phone = ref<string>("")
 const isSubmitted = ref<boolean>(false)
@@ -101,6 +102,7 @@ function resetForm(): void {
             text-align: center
             gap: 16px
     &-success__icon
-        font-size: 48px
+        width: 48px
+        height: 48px
         color: #2ed573
 </style>

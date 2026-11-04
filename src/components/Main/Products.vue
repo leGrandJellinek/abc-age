@@ -9,7 +9,7 @@
           placeholder="Поиск по названию или описанию..."
           aria-label="Поиск товаров"
         />
-        <i class="fa-solid fa-magnifying-glass icon" aria-hidden="true"></i>
+        <IconSearch class="icon" />
         <button
           class="clear-search-btn"
           v-if="productsStore.searchQuery"
@@ -17,7 +17,7 @@
           @click="productsStore.searchQuery = ''"
           aria-label="Очистить поиск"
         >
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          <IconClose class="clear-icon" />
         </button>
       </div>
     </div>
@@ -41,7 +41,7 @@
           @click.stop="productsStore.toggleTag(tag.id)"
           aria-label="Снять фильтр"
         >
-          <i class="fa-solid fa-xmark icon" aria-hidden="true"></i>
+          <IconClose class="tag-close-icon" />
         </button>
       </div>
     </div>
@@ -64,6 +64,8 @@
 import { useProductsStore } from "@/stores"
 import SectionBlackTitle from "@/components/UI/SectionBlackTitle.vue"
 import ProductItem from "@/components/Main/ProductItem.vue"
+import IconSearch from "@/components/icons/IconSearch.vue"
+import IconClose from "@/components/icons/IconClose.vue"
 
 const productsStore = useProductsStore()
 </script>
@@ -80,10 +82,11 @@ const productsStore = useProductsStore()
                 position: relative
                 display: flex
                 align-items: center
-                & i.icon 
+                & .icon 
                     position: absolute
                     left: 20px
-                    font-size: 16px
+                    width: 18px
+                    height: 18px
                     color: #9A9EA6
                 & .clear-search-btn
                     position: absolute
@@ -92,9 +95,14 @@ const productsStore = useProductsStore()
                     border: none
                     color: #9A9EA6
                     cursor: pointer
-                    font-size: 14px
+                    display: flex
+                    align-items: center
+                    justify-content: center
                     &:hover
                         color: #1B1717
+                    .clear-icon
+                        width: 14px
+                        height: 14px
         &-title 
             font-family: 'TTNorms', sans-serif
             font-weight: 500
@@ -154,8 +162,9 @@ const productsStore = useProductsStore()
                 padding: 0
                 display: flex
                 align-items: center
-                i.icon 
-                    font-size: 14px
+                .tag-close-icon 
+                    width: 14px
+                    height: 14px
                     color: #FFFFFF
         &-block 
             display: grid

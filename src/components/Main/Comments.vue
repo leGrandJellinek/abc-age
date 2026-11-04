@@ -16,10 +16,10 @@
     <div class="main__comments-contanier">
       <div class="main__comments-btns">
         <button class="main__comments-btn prev" type="button" aria-label="Предыдущий отзыв">
-          <i class="fa-solid fa-chevron-left icon" aria-hidden="true"></i>
+          <IconChevron class="icon" direction="left" />
         </button>
         <button class="main__comments-btn next" type="button" aria-label="Следующий отзыв">
-          <i class="fa-solid fa-chevron-right icon" aria-hidden="true"></i>
+          <IconChevron class="icon" direction="right" />
         </button>
       </div>
     </div>
@@ -29,6 +29,7 @@
 <script setup lang="ts">
 import { useCommentsStore } from "@/stores"
 import Comment from "@/components/Main/Comment.vue"
+import IconChevron from "@/components/icons/IconChevron.vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Pagination, Navigation } from "swiper"
 
@@ -78,8 +79,9 @@ const modules = [Pagination, Navigation]
                 background: #3361d8
             &:active
                 transform: scale(0.95)
-            i.icon 
-                font-size: 18px
+            .icon 
+                width: 22px
+                height: 22px
                 color: white
 
 :deep(.swiper-slide)
